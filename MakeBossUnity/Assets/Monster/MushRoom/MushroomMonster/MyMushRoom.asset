@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b27bb6d9a2c8d540a10dff10acc543e, type: 3}
-  m_Name: Mushroom Debug Info
+  m_Name: MyMushRoom Debug Info
   m_EditorClassIdentifier: 
   m_CodeBreakPointsList: []
 --- !u!114 &-3581461730570226588
@@ -23,7 +23,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db920e62f70f420bb33c771449926fa4, type: 3}
-  m_Name: Mushroom
+  m_Name: MyMushRoom
   m_EditorClassIdentifier: 
   Graphs:
   - rid: 7207673082943898494
@@ -71,9 +71,9 @@ MonoBehaviour:
       type: {class: BehaviorGraphModule, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         AuthoringAssetID:
-          m_Value0: 9548409595595328664
-          m_Value1: 9919071274886000616
-        m_DebugInfo: {fileID: 0}
+          m_Value0: 288688620425037945
+          m_Value1: 10476212269857534345
+        m_DebugInfo: {fileID: -8926371993748553708}
         BlackboardReference:
           rid: 7207673082943898495
         BlackboardGroupReferences: []
@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c02bb70996b49eba31d0c206e28da24, type: 3}
-  m_Name: Mushroom Blackboard
+  m_Name: MyMushRoom Blackboard
   m_EditorClassIdentifier: 
   VersionTimestamp: 638942453929162806
   AssetID:
@@ -466,7 +466,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bad8f2220607dac4db5082ff333fafb8, type: 3}
-  m_Name: Mushroom
+  m_Name: MyMushRoom
   m_EditorClassIdentifier: 
   Blackboard: {fileID: 495219185323377345}
   m_Description: 
@@ -495,8 +495,8 @@ MonoBehaviour:
   m_DebugInfo: {fileID: -8926371993748553708}
   m_RuntimeGraph: {fileID: -3581461730570226588}
   AssetID:
-    m_Value0: 9548409595595328664
-    m_Value1: 9919071274886000616
+    m_Value0: 288688620425037945
+    m_Value1: 10476212269857534345
   Story:
     Story: 
     StoryVariableNames: []
@@ -1937,11 +1937,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2dd922ae02c94c87a66e46a10a7319b9, type: 3}
-  m_Name: Mushroom Blackboard
+  m_Name: MyMushRoom Blackboard
   m_EditorClassIdentifier: 
   AssetID:
-    m_Value0: 9548409595595328664
-    m_Value1: 9919071274886000616
+    m_Value0: 288688620425037945
+    m_Value1: 10476212269857534345
   m_Variables:
   - rid: 7207673059049472231
   - rid: 7207673059049472262

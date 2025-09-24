@@ -354,6 +354,8 @@ GameObject:
   - component: {fileID: 965016780}
   - component: {fileID: 965016781}
   - component: {fileID: 965016782}
+  - component: {fileID: 965016783}
+  - component: {fileID: 965016784}
   m_Layer: 0
   m_Name: Mushroom
   m_TagString: Untagged
@@ -477,11 +479,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Graph: {fileID: -3581461730570226588, guid: 79c8214fc5a00104897172d88dfb6291, type: 2}
+  m_Graph: {fileID: -3581461730570226588, guid: 980c6403f0c38284e86f5c61c59ea789, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 7207673059049472294
   - rid: 7207673059049472295
   - rid: 7207673081611157588
+  - rid: 7207673104476406164
+  - rid: 7207673104476406535
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
@@ -511,6 +515,22 @@ MonoBehaviour:
           m_Value1: 4474087513362954567
         Name: Speed
         m_Value: 1
+    - rid: 7207673104476406164
+      type: {class: 'BlackboardVariable`1[[ActionBehavior, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 17978012363171280587
+          m_Value1: 6423618771364044149
+        Name: Attack1
+        m_Value: {fileID: 965016783}
+    - rid: 7207673104476406535
+      type: {class: 'BlackboardVariable`1[[ActionBehavior, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 7571521209035214537
+          m_Value1: 2061797135996324325
+        Name: Attack2
+        m_Value: {fileID: 965016784}
 --- !u!50 &965016782
 Rigidbody2D:
   serializedVersion: 5
@@ -538,6 +558,38 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &965016783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965016776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2973f10eb9c24a6409a2c280b1161a1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsPatternEnd: 0
+  waitTimeForCharging: 1
+  projectilePrefab: {fileID: 2551431596866379132, guid: 977706e9408be2142ba15459353124b2, type: 3}
+  projectileRange: 180
+  loopCount: 2
+  RightAngle: -60
+  LeftAngle: 120
+--- !u!114 &965016784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965016776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9c397e0a925ff443a4b297ffa35d7be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsPatternEnd: 0
 --- !u!1 &2023936868
 GameObject:
   m_ObjectHideFlags: 0

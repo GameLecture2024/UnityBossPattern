@@ -467,6 +467,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ef228660d7f224da62d07934947131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startState: 1
+  MaxHealth: 100
+  <CurrentHealth>k__BackingField: 0
 --- !u!114 &965016781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,6 +489,7 @@ MonoBehaviour:
   - rid: 7207673081611157588
   - rid: 7207673104476406164
   - rid: 7207673104476406535
+  - rid: 7207673126913048835
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
@@ -531,6 +535,15 @@ MonoBehaviour:
           m_Value1: 2061797135996324325
         Name: Attack2
         m_Value: {fileID: 965016784}
+    - rid: 7207673126913048835
+      type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 14155609730657940194
+          m_Value1: 8891738440923949872
+        Name: StopActions
+        m_Value:
+        - {fileID: 965016776}
 --- !u!50 &965016782
 Rigidbody2D:
   serializedVersion: 5

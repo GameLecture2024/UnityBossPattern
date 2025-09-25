@@ -6,6 +6,7 @@ public class MushroomAttack1 : ActionBehavior
 {
     Transform target;
     Animator animator;
+    SpriteRenderer spriteRenderer;
 
     [SerializeField] float waitTimeForCharging = 1f;   // 차지 시간
     [SerializeField] GameObject projectilePrefab;      // 투사체
@@ -18,22 +19,39 @@ public class MushroomAttack1 : ActionBehavior
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public override void OnEnd()
     {
         // 패턴을 시작할 때 초기화 해야하는 코드가 있다면 여기서 설정한다.
+        IsPatternEnd = false;
     }
 
     public override void OnStart()
     {
+        IsPatternEnd = false;
         StartCoroutine(ChargingPattern());
     }
 
     public override void OnUpdate()
     {
         // 플레이어의 현재 위치 방향으로 flip 하는 코드를
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if(transform.position.x < player.transform.position.x)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+        }
+    }
 
+    public override void OnStop()
+    {
+        StopCoroutine(ChargingPattern());
+        base.OnStop();
     }
 
     IEnumerator ChargingPattern()

@@ -14,6 +14,12 @@ public class Mushroom : MonoBehaviour, IDamagable
     [SerializeField] int MaxHealth = 100;
     [field:SerializeField] public int CurrentHealth { get; private set; }
 
+    public Action<bool> OnPatternStart; // Action, Func 함수를 변수처럼 저장해서 사용하겠다.  void 이름(bool enable)
+    public Action<string, bool> OnSomeFucStart;
+    public Action<int, int> OnHealthbarUpdate;   // 함수를 저장하는 변수
+
+    [SerializeField] ParticleSystem rageVFX; // 보스가 레이지모드가 되었을 때 발동하는 이펙트
+
     private void Awake()
     {
         behaviorAgent = GetComponent<BehaviorGraphAgent>();
@@ -22,13 +28,52 @@ public class Mushroom : MonoBehaviour, IDamagable
     private void Start()
     {
         behaviorAgent.SetVariableValue<EnemyState>("EnemyState", startState);
-        behaviorAgent.SetVariableValue<Boolean>("IsPatternTrigger", true);
+       
         CurrentHealth = MaxHealth;
+
+        OnHealthbarUpdate?.Invoke(CurrentHealth, MaxHealth); // 
+    }
+
+    private void OnEnable()
+    {
+        OnPatternStart += HandlePatternStart;
+        OnSomeFucStart += HandleSomeFuncStart;
+    }
+
+    private void OnDisable()
+    {
+        OnPatternStart -= HandlePatternStart;
+        OnSomeFucStart -= HandleSomeFuncStart;
+    }
+
+    private void HandlePatternStart(bool enable)
+    {
+        Debug.Log("HandlePatternStart 함수 실행!");
+        behaviorAgent.SetVariableValue<Boolean>("IsPatternTrigger", enable);     // 어떤 이벤트가 실행되었을 때
+
+        if(rageVFX.isPlaying) { return; } // 반복적인 play 호출을 방지하기 위함
+
+        rageVFX.Play();
+    }
+
+    private void HandleSomeFuncStart(string methodName, bool enable) // 함수를 변수처럼 사용을 하고 싶다. -> Action<string, bool>
+    {
+        Debug.Log("HandleSomeFuncStart 함수 실행!");
+        behaviorAgent.SetVariableValue<Boolean>(methodName, enable);
     }
 
     public void TakeDamage(int damage)
     {
         CurrentHealth -= damage;
+
+        OnHealthbarUpdate?.Invoke(CurrentHealth, MaxHealth); // 체력을 업데이트를 하는 함수를 실행하라고 명령.
+
+        if (CurrentHealth < MaxHealth * 0.5f)
+        {
+            OnPatternStart?.Invoke(true);
+            //OnSomeFucStart?.Invoke("IsPatternTrigger", true);
+            // 레이지 모드, 보스 체력이 일정 이하가 되면 광폭화, 패턴이 강화가 된다.
+        }
 
         if(IsStun())
         {

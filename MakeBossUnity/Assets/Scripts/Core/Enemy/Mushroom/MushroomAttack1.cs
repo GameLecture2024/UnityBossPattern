@@ -16,10 +16,13 @@ public class MushroomAttack1 : ActionBehavior
     [SerializeField] float RightAngle = -60f;
     [SerializeField] float LeftAngle = 150f;
 
+    AudioSource audiosource;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audiosource = GetComponent<AudioSource>();
     }
 
     public override void OnEnd()
@@ -65,6 +68,8 @@ public class MushroomAttack1 : ActionBehavior
         {
             // 180도 각도로 투사체를 발사한다
             Fire();
+            audiosource.clip = Resources.Load<AudioClip>("Sound/Ice"); // Resources
+            audiosource.Play();
             yield return new WaitForSeconds(1f);
         }
 
